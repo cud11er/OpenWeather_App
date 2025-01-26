@@ -1,0 +1,140 @@
+div, p, h2 {
+  color: black;
+}
+
+/* Общие стили для страницы */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden; /* Отключаем прокрутку страницы */
+}
+
+/* Обертка для контента */
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1200px; /* Ограничение ширины */
+  height: 80vh; /* Ограничиваем высоту контейнера */
+  overflow: hidden; /* Скрываем лишнее содержимое, если оно выходит за пределы */
+}
+
+/* Кнопка загрузки погоды */
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px; /* Чтобы была отступа от кнопки */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Стили для каждого блока погоды */
+.weather-item, .forecast {
+  width: 48%; /* Блоки занимают 48% ширины, чтобы оставить отступы */
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  background-image: url('img.png');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: left;
+  overflow: hidden;
+  margin-right: 4%; /* Отступ справа между колонками */
+  margin-bottom: 15px; /* Отступ между блоками */
+}
+
+/* Убираем отступ справа у последнего блока */
+.wrapper .weather-item:last-child,
+.wrapper .forecast:last-child {
+  margin-right: 0;
+}
+
+/* Заголовок блока погоды */
+.weather-item h2, .forecast h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Параграфы внутри блока погоды */
+.weather-item p, .forecast p {
+  font-size: 16px;
+  margin: 6px 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Прозрачность фона для текста */
+.weather-item:before, .forecast:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 600px) {
+  .wrapper {
+    flex-direction: column; /* Переводим колонки в ряд на мобильных устройствах */
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 16px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .weather-item, .forecast {
+    width: 100%; /* На мобильных устройствах блоки занимают всю ширину */
+    margin-right: 0;
+  }
+
+  .weather-item h2, .forecast h2 {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  .weather-item p, .forecast p {
+    font-size: 14px;
+    margin: 4px 0;
+  }
+}
+
+/* Стили для больших экранов */
+@media (min-width: 1200px) {
+  .wrapper {
+    padding: 40px;
+  }
+}

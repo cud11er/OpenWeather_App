@@ -14,6 +14,7 @@ loadButton.onclick = async () => {
 
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
+    console.log("Широта = ", latitude, "Долгота = ", longitude);
 
     const response = await fetch(`/api/weather?lat=${latitude}&lon=${longitude}`);
 

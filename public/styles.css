@@ -12,7 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow: hidden; /* Отключаем прокрутку страницы */
+  overflow: auto; /* Отключаем прокрутку страницы */
 }
 
 /* Обертка для контента */
